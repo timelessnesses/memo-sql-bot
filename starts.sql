@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS memo(
+CREATE TABLE IF NOT EXISTS memos(
     id INTEGER,
     text_ TEXT,
     day TEXT,

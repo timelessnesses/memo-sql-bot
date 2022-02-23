@@ -59,8 +59,12 @@ class Memo_Pusher(commands.Cog):
 
 
     @memo_push.command(name='add', aliases=['a'])
-    async def add(self, ctx, end:int=-1,password:str='', memo:str= None):
+    async def add(self, ctx, *, argss):
+        args = argss.split(',')
         """Add a memo"""
+        memo = args[0]
+        end = args[1]
+        password = args[2]
         await ctx.message.delete()
         end = self.parse_time(end)
         encoded_memo_attachment = json.dumps({'files': [base64.b64encode(await file.read()).decode('utf-8') for file in ctx.message.attachments]})
